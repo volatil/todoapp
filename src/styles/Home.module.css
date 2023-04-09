@@ -1,14 +1,36 @@
-main#main {
-	width: 60%;
+main#body {
+	width: 100%;
 	margin: 0 auto;
 	background-color: #25273c;
+	height: 100%;
+	position: absolute;
 }
 .header {
 	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
 }
 .header > h1 {
 	color: white;
+	font-size: 2.4em;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 0.25em;
+}
+.header > button {
+	background: transparent;
+	cursor: pointer;
+	border: none;
+	font-size: 2em;
+	color: white;
+	width: 60px;
+	display: block;
 }
 .header > button > img {
-	width: 40px;
+	width: 25px;
+}
+main#body section {
+	width: 60%;
+	margin: 0 auto;
+	/* background-color: var(--secundario); */
 }

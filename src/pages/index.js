@@ -21,16 +21,6 @@ export default function Home() {
 		}
 	};
 
-	const cssboton = {
-		background: "red",
-		border: "none",
-		fontSize: "2em",
-		color: "white",
-		margin: "0 auto",
-		width: "200px",
-		display: "block",
-	};
-
 	return (
 		<>
 			<Head>
@@ -40,12 +30,25 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Darkmode estado={darkmode}>
-				<header className={css.header}>
-					<h1>TODO</h1>
-					<button onClick={switchDarkmode} style={cssboton} type="button">
-						{darkmode ? (<img src="assets/svg/sun.svg" alt="solcito" />) : (<img src="assets/svg/moon.svg" alt="lalunallena" />)}
-					</button>
-				</header>
+				<section>
+					<header className={css.header}>
+						<h1>TODO</h1>
+						<button onClick={switchDarkmode} type="button">
+							{darkmode ? (<img src="assets/svg/sun.svg" alt="solcito" />) : (<img src="assets/svg/moon.svg" alt="lalunallena" />)}
+						</button>
+					</header>
+					<section className="crear">
+						<h3>CREAR</h3>
+						<section className="todos">
+							<ul>
+								<li>tarea 1</li>
+								<li>tarea 2</li>
+								<li>tarea 3</li>
+								<li>tarea 4</li>
+							</ul>
+						</section>
+					</section>
+				</section>
 			</Darkmode>
 		</>
 	);
