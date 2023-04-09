@@ -10,6 +10,54 @@ import css from "../styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+function Header(props) {
+	const { children } = props;
+	return (
+		<header className={css.header}>
+			<h1>TODO</h1>
+			{ children }
+		</header>
+	);
+}
+function Crear() {
+	return (
+		<section className={css.crear}>
+			<ul>
+				<li>
+					<input type="text" placeholder="Create a new todo ..." />
+				</li>
+			</ul>
+		</section>
+	);
+}
+
+function Todos() {
+	return (
+		<section className={css.todos}>
+			<ul>
+				<li>tarea 1</li>
+				<li>tarea 2</li>
+				<li>tarea 3</li>
+				<li>tarea 4</li>
+			</ul>
+		</section>
+	);
+}
+
+function NavInferior() {
+	return (
+		<nav>
+			<p>5 items left</p>
+			<ul>
+				<li>all</li>
+				<li>active</li>
+				<li>completed</li>
+			</ul>
+			<p>Clear Completed</p>
+		</nav>
+	);
+}
+
 export default function Home() {
 	const [darkmode, setdarkmode] = useState(true);
 
@@ -31,23 +79,14 @@ export default function Home() {
 			</Head>
 			<Darkmode estado={darkmode}>
 				<section>
-					<header className={css.header}>
-						<h1>TODO</h1>
+					<Header>
 						<button onClick={switchDarkmode} type="button">
 							{darkmode ? (<img src="assets/svg/sun.svg" alt="solcito" />) : (<img src="assets/svg/moon.svg" alt="lalunallena" />)}
 						</button>
-					</header>
-					<section className="crear">
-						<h3>CREAR</h3>
-						<section className="todos">
-							<ul>
-								<li>tarea 1</li>
-								<li>tarea 2</li>
-								<li>tarea 3</li>
-								<li>tarea 4</li>
-							</ul>
-						</section>
-					</section>
+					</Header>
+					<Crear />
+					<Todos />
+					<NavInferior />
 				</section>
 			</Darkmode>
 		</>

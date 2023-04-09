@@ -1,7 +1,6 @@
 main#body {
 	width: 100%;
 	margin: 0 auto;
-	background-color: #25273c;
 	height: 100%;
 	position: absolute;
 }
@@ -29,8 +28,61 @@ main#body {
 .header > button > img {
 	width: 25px;
 }
-main#body section {
+main#body > section {
 	width: 60%;
 	margin: 0 auto;
-	/* background-color: var(--secundario); */
+}
+main#body > section > section.crear {
+	margin: 40px 0;
+}
+main#body > section > section.crear > ul {
+	padding: 0;
+	margin: 0;
+}
+main#body > section > section.crear > ul > li {
+	background-color: #25273c;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	height: 50px;
+}
+main#body > section > section.crear > ul > li > input {
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	padding: 0 10px;
+	color: white;
+	font-weight: 500;
+	font-size: 1.1em;
+	letter-spacing: 0.05em;
+}
+main#body > section > section.crear > ul > li > input::placeholder {
+	font-family: var(--font);
+	color: var(--secundario);
+}
+main#body > section > section.todos > ul {
+	padding: 0;
+	margin: 0;
+}
+main#body > section > section.todos > ul > li {
+	background-color: #25273c;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	height: 40px;
+}
+main#body > section > section.todos > ul > li > input {
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	padding: 0 10px;
+	color: white;
+}
+main#body > section > section.todos > ul > li > input::placeholder {
+	font-family: var(--font);
+	color: var(--secundario);
 }
