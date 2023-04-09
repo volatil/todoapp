@@ -11,11 +11,17 @@ import css from "../styles/Home.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 function Header(props) {
-	const { children } = props;
+	const { estado, elon } = props;
 	return (
 		<header className={css.header}>
 			<h1>TODO</h1>
-			{ children }
+			<button onClick={elon} type="button">
+				{
+					estado
+						? (<img src="assets/svg/sun.svg" alt="solcito" />)
+						: (<img src="assets/svg/moon.svg" alt="lalunallena" />)
+				}
+			</button>
 		</header>
 	);
 }
@@ -79,11 +85,7 @@ export default function Home() {
 			</Head>
 			<Darkmode estado={darkmode}>
 				<section>
-					<Header>
-						<button onClick={switchDarkmode} type="button">
-							{darkmode ? (<img src="assets/svg/sun.svg" alt="solcito" />) : (<img src="assets/svg/moon.svg" alt="lalunallena" />)}
-						</button>
-					</Header>
+					<Header estado={darkmode} elon={() => { switchDarkmode(); }} />
 					<Crear />
 					<Todos />
 					<NavInferior />
