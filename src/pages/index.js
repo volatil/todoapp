@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Head from "next/head";
 import Image from "next/image";
@@ -6,14 +6,18 @@ import { Inter } from "next/font/google";
 
 import Darkmode from "../components/darkmode";
 
+import header from "../styles/Header.module.css";
+import crear from "../styles/Crear.module.css";
+import todos from "../styles/Todos.module.css";
 import css from "../styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 function Header(props) {
 	const { estado, elon } = props;
+
 	return (
-		<header className={css.header}>
+		<header className={header.header}>
 			<h1>TODO</h1>
 			<button onClick={elon} type="button">
 				{
@@ -25,12 +29,23 @@ function Header(props) {
 		</header>
 	);
 }
+
 function Crear() {
+	const agregaDB = function () {
+		const valor = document.querySelector(".addTODO").value;
+		if (valor.length === 0) {
+			console.debug( "No hay un TODO por agregar" );
+		} else {
+			console.debug( `Valor: ${valor}` );
+		}
+	};
+
 	return (
-		<section className={css.crear}>
+		<section className={crear.crear}>
 			<ul>
 				<li>
-					<input type="text" placeholder="Create a new todo ..." />
+					<input className="addTODO" type="text" placeholder="Create a new todo ..." />
+					<button onClick={agregaDB} type="button">+</button>
 				</li>
 			</ul>
 		</section>
@@ -39,7 +54,7 @@ function Crear() {
 
 function Todos() {
 	return (
-		<section className={css.todos}>
+		<section className={todos.todos}>
 			<ul>
 				<li>tarea 1</li>
 				<li>tarea 2</li>
@@ -52,7 +67,7 @@ function Todos() {
 
 function NavInferior() {
 	return (
-		<nav>
+		<nav className={NavInferior.menu}>
 			<p>5 items left</p>
 			<ul>
 				<li>all</li>
@@ -65,15 +80,30 @@ function NavInferior() {
 }
 
 export default function Home() {
-	const [darkmode, setdarkmode] = useState(true);
+	const [darkmode, setdarkmode] = useState();
 
-	const switchDarkmode = function () {
-		if (darkmode === true) {
+	const estadoDarkmode = function () {
+		if ( localStorage.getItem("todoapp_darkmode") === null ) {
+			localStorage.setItem("todoapp_darkmode", false);
+		} else if ( localStorage.getItem("todoapp_darkmode") === "false" ) {
 			setdarkmode(false);
 		} else {
 			setdarkmode(true);
 		}
 	};
+	const switchDarkmode = function () {
+		if (darkmode === true) {
+			setdarkmode(false);
+			localStorage.setItem("todoapp_darkmode", false);
+		} else {
+			setdarkmode(true);
+			localStorage.setItem("todoapp_darkmode", true);
+		}
+	};
+
+	useEffect(() => {
+		estadoDarkmode();
+	}, []);
 
 	return (
 		<>
@@ -84,6 +114,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Darkmode estado={darkmode}>
+				<span className={css.imagenheader} />
 				<section>
 					<Header estado={darkmode} elon={() => { switchDarkmode(); }} />
 					<Crear />

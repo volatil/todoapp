@@ -1,0 +1,7 @@
+
+main.darkmode[data-darkmode=true] {
+	background-color: #181824;
+}
+main.darkmode[data-darkmode=false] {
+	background-color: whitesmoke;
+}
