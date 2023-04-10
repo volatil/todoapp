@@ -5,7 +5,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 
-import agregarDB from "../helpers/helpers";
+import { agregarDB, getTodos } from "../helpers/helpers";
 
 import Darkmode from "../components/darkmode";
 import dark from "../styles/Darkmode.module.css";
@@ -36,6 +36,7 @@ function Header(props) {
 }
 
 function Crear() {
+	const [losTODO, setlosTODO] = useState();
 	const agregaDB = function () {
 		const valor = document.querySelector(".addTODO").value;
 		agregarDB(valor);
@@ -54,33 +55,27 @@ function Crear() {
 }
 
 function Todos() {
+	const [losTODO, setlosTODO] = useState();
+
+	useEffect(() => {
+		console.debug( getTodos() );
+		setlosTODO( getTodos() );
+	}, []);
 	return (
 		<section id="todos" className={`${todos.todos} ${dark.todos}`}>
 			<ul>
-				<li>
-					<label htmlFor="tarea 1">
-						<input id="tarea 1" type="checkbox" />
-						Tarea 1
-					</label>
-				</li>
-				<li>
-					<label htmlFor="tarea 2">
-						<input id="tarea 2" type="checkbox" />
-						Tarea 2
-					</label>
-				</li>
-				<li>
-					<label htmlFor="tarea 3">
-						<input id="tarea 3" type="checkbox" />
-						Tarea 3
-					</label>
-				</li>
-				<li>
-					<label htmlFor="tarea 4">
-						<input id="tarea 4" type="checkbox" />
-						Tarea 4
-					</label>
-				</li>
+				{
+					losTODO?.map((todo) => {
+						return (
+							<li key={todo}>
+								<label htmlFor={todo}>
+									<input id={todo} type="checkbox" />
+									{todo}
+								</label>
+							</li>
+						);
+					})
+				}
 			</ul>
 		</section>
 	);

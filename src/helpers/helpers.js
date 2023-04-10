@@ -1,5 +1,6 @@
-export default function agregarDB(task) {
-	const DB = "todoapp_db";
+import { DB } from "./CONST";
+
+export function agregarDB(task) {
 	const fecha = {
 		ano: new Date().getFullYear(),
 		mes: new Date().getMonth(),
@@ -10,16 +11,19 @@ export default function agregarDB(task) {
 	};
 	const fechacompleta = String(fecha.ano) + String(fecha.mes) + String(fecha.dia) + String(fecha.hora) + String(fecha.minuto) + String(fecha.segundo);
 
-	if (task.length === 0) {
-		console.debug( "No hay un TODO por agregar" );
-	} else if ( localStorage.getItem(DB) === null ) {
-		const nuevotask = {};
-		Object(nuevotask)[fechacompleta] = task;
+	if ( localStorage.getItem(DB) === null ) {
+		const nuevotask = [];
+		nuevotask.push( task );
 		localStorage.setItem(DB, JSON.stringify( nuevotask ));
 	} else {
 		console.debug( `Agregando: ${task}` );
 		const nuevotask = JSON.parse( localStorage.getItem(DB) );
-		Object(nuevotask)[fechacompleta] = task;
+		nuevotask.push( task );
 		localStorage.setItem(DB, JSON.stringify( nuevotask ));
 	}
+}
+
+export function getTodos() {
+	const lostodo = JSON.parse( localStorage.getItem(DB) );
+	return lostodo;
 }
