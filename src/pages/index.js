@@ -120,14 +120,20 @@ export default function Home() {
 	}, []);
 
 	return (
-		<Darkmode estado={darkmode}>
-			<span className={css.imagenheader} />
-			<section>
-				<Header estado={darkmode} elon={() => { switchDarkmode(); }} />
-				<Crear setlosTODO={setlosTODO} />
-				<Todos losTODO={losTODO} />
-				<NavInferior />
-			</section>
-		</Darkmode>
+		<>
+			<Head>
+				<title>TODO App</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+			</Head>
+			<Darkmode estado={darkmode}>
+				<span className={css.imagenheader} />
+				<section>
+					<Header estado={darkmode} elon={() => { switchDarkmode(); }} />
+					<Crear setlosTODO={setlosTODO} />
+					<Todos losTODO={losTODO} />
+					<NavInferior />
+				</section>
+			</Darkmode>
+		</>
 	);
 }
