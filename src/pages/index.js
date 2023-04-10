@@ -39,6 +39,14 @@ function Crear() {
 	const agregaDB = function () {
 		const valor = document.querySelector(".addTODO").value;
 		agregarDB(valor);
+		$("#todos ul").append(`
+			<li key=${valor}>
+				<label htmlFor=${valor}>
+					<input id=${valor} type="checkbox" />
+					${valor}
+				</label>
+			</li>
+		`);
 	};
 
 	return (
