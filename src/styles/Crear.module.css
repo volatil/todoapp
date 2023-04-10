@@ -35,4 +35,6 @@ section.crear > ul > li > button {
 	color: white;
 	border: none;
 	cursor: pointer;
+	font-size: 2em;
+	font-weight: 100;
 }
