@@ -11,15 +11,19 @@ export function agregarDB(task) {
 	};
 	const fechacompleta = String(fecha.ano) + String(fecha.mes) + String(fecha.dia) + String(fecha.hora) + String(fecha.minuto) + String(fecha.segundo);
 
-	if ( localStorage.getItem(DB) === null ) {
+	if ( task.length === 0 ) {
+		alert("Debes ingresar un todo valido");
+	} else if ( localStorage.getItem(DB) === null ) {
 		const nuevotask = [];
 		nuevotask.push( task );
 		localStorage.setItem(DB, JSON.stringify( nuevotask ));
+		return JSON.parse(localStorage.getItem(DB));
 	} else {
 		console.debug( `Agregando: ${task}` );
 		const nuevotask = JSON.parse( localStorage.getItem(DB) );
 		nuevotask.push( task );
 		localStorage.setItem(DB, JSON.stringify( nuevotask ));
+		return JSON.parse(localStorage.getItem(DB));
 	}
 }
 
