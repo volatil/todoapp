@@ -5,11 +5,13 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 
 import Darkmode from "../components/darkmode";
+import dark from "../styles/Darkmode.module.css";
 
+import css from "../styles/Home.module.css";
 import header from "../styles/Header.module.css";
 import crear from "../styles/Crear.module.css";
 import todos from "../styles/Todos.module.css";
-import css from "../styles/Home.module.css";
+import navcss from "../styles/Navcss.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,12 +56,24 @@ function Crear() {
 
 function Todos() {
 	return (
-		<section className={todos.todos}>
+		<section id="todos" className={`${todos.todos} ${dark.todos}`}>
 			<ul>
-				<li>tarea 1</li>
-				<li>tarea 2</li>
-				<li>tarea 3</li>
-				<li>tarea 4</li>
+				<li>
+					<input id="tarea 1" type="checkbox" />
+					<label htmlFor="tarea 1">Tarea 1</label>
+				</li>
+				<li>
+					<input id="tarea 2" type="checkbox" />
+					<label htmlFor="tarea 2">Tarea 2</label>
+				</li>
+				<li>
+					<input id="tarea 3" type="checkbox" />
+					<label htmlFor="tarea 3">Tarea 3</label>
+				</li>
+				<li>
+					<input id="tarea 4" type="checkbox" />
+					<label htmlFor="tarea 4">Tarea 4</label>
+				</li>
 			</ul>
 		</section>
 	);
@@ -67,14 +81,14 @@ function Todos() {
 
 function NavInferior() {
 	return (
-		<nav className={NavInferior.menu}>
+		<nav className={`${navcss.menu} ${dark.menu}`}>
 			<p>5 items left</p>
 			<ul>
 				<li>all</li>
 				<li>active</li>
 				<li>completed</li>
 			</ul>
-			<p>Clear Completed</p>
+			<p>clear completed</p>
 		</nav>
 	);
 }

@@ -17,7 +17,7 @@ main#body > span.imagenheader {
 	position: absolute;
 }
 main#body > section {
-	width: 60%;
+	width: 80%;
 	margin: 0 auto;
 	position: relative;
 	z-index: 3;

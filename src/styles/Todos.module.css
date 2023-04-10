@@ -3,22 +3,31 @@ section.todos > ul {
 	margin: 0;
 }
 section.todos > ul > li {
-	background-color: var(--bloque);
 	list-style: none;
-	padding: 0;
+	padding: 0 10px;
 	margin: 0;
 	height: 40px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 50px;
 }
-section.todos > ul > li > input {
+section.todos > ul > li > label {
 	width: 100%;
 	height: 100%;
+	display: flex;
+	align-items: center;
+}
+section.todos > ul > li > input {
 	background-color: transparent;
 	border: none;
 	outline: none;
 	padding: 0 10px;
-	color: white;
+	margin-right: 15px;
+	width: 30px;
+	border-radius: 50%;
+	height: 30px;
 }
 section.todos > ul > li > input::placeholder {
 	font-family: var(--font);
-	color: var(--secundario);
 }

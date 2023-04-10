@@ -1,7 +1,33 @@
-
+/* DARK MODE */
 main.darkmode[data-darkmode=true] {
 	background-color: #181824;
 }
+main.darkmode[data-darkmode=true] section > section.todos > ul > li {
+	background-color: var(--bloque);
+	border-bottom: 1px solid #333;
+}
+main.darkmode[data-darkmode=true] > section > section.todos > ul > li label {
+	color: white;
+}
+main.darkmode[data-darkmode=true] > section > nav.menu {
+	background: var(--bloque);
+	color: white;
+	font-weight: 600;
+}
+
+/* LIGHT MODE */
 main.darkmode[data-darkmode=false] {
 	background-color: whitesmoke;
+}
+main.darkmode[data-darkmode=false] section > section.todos > ul > li {
+	background-color: #ddd;
+	border-bottom: 1px solid #bbb;
+}
+main.darkmode[data-darkmode=false] > section > section.todos > ul > li label {
+	color: black;
+}
+main.darkmode[data-darkmode=false] > section > nav.menu {
+	background: #ddd;
+	color: black;
+	font-weight: 600;
 }
