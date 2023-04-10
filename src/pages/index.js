@@ -61,12 +61,15 @@ function Todos(props) {
 			<ul>
 				{!losTODO && (<li style={{ color: "white" }}>no hay TODO&apos;s 😢</li>)}
 				{
-					losTODO?.map((todo) => {
+					losTODO?.map((todo, algo) => {
+						const { fechacompleta, task } = todo;
+						console.debug( fechacompleta );
+						console.debug( task );
 						return (
-							<li key={todo}>
-								<label htmlFor={todo}>
-									<input id={todo} type="checkbox" />
-									{todo}
+							<li key={fechacompleta}>
+								<label htmlFor={fechacompleta}>
+									<input id={fechacompleta} type="checkbox" />
+									{task}
 								</label>
 							</li>
 						);
