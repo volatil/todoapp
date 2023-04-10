@@ -8,7 +8,7 @@ export default function Todos(props) {
 			<ul>
 				{!losTODO && (<li style={{ color: "white" }}>no hay TODO&apos;s 😢</li>)}
 				{
-					losTODO?.map((todo, algo) => {
+					losTODO?.map((todo) => {
 						const { fechacompleta, task } = todo;
 						return (
 							<li key={fechacompleta}>
