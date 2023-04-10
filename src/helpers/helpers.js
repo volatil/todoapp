@@ -15,14 +15,11 @@ export function agregarDB(task) {
 		alert("Debes ingresar un todo valido");
 	} else if ( localStorage.getItem(DB) === null ) {
 		const nuevotask = [];
-
 		nuevotask.push({ fechacompleta, task });
 		localStorage.setItem(DB, JSON.stringify( nuevotask ));
 		return JSON.parse(localStorage.getItem(DB));
 	}
-	console.debug( `Agregando: ${task}` );
 	const nuevotask = JSON.parse( localStorage.getItem(DB) );
-
 	nuevotask.push({ fechacompleta, task });
 	localStorage.setItem(DB, JSON.stringify( nuevotask ));
 	return JSON.parse(localStorage.getItem(DB));
