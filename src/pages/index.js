@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import $ from "jquery";
 
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
+
+import agregarDB from "../helpers/helpers";
 
 import Darkmode from "../components/darkmode";
 import dark from "../styles/Darkmode.module.css";
@@ -35,11 +38,7 @@ function Header(props) {
 function Crear() {
 	const agregaDB = function () {
 		const valor = document.querySelector(".addTODO").value;
-		if (valor.length === 0) {
-			console.debug( "No hay un TODO por agregar" );
-		} else {
-			console.debug( `Valor: ${valor}` );
-		}
+		agregarDB(valor);
 	};
 
 	return (
@@ -59,20 +58,28 @@ function Todos() {
 		<section id="todos" className={`${todos.todos} ${dark.todos}`}>
 			<ul>
 				<li>
-					<input id="tarea 1" type="checkbox" />
-					<label htmlFor="tarea 1">Tarea 1</label>
+					<label htmlFor="tarea 1">
+						<input id="tarea 1" type="checkbox" />
+						Tarea 1
+					</label>
 				</li>
 				<li>
-					<input id="tarea 2" type="checkbox" />
-					<label htmlFor="tarea 2">Tarea 2</label>
+					<label htmlFor="tarea 2">
+						<input id="tarea 2" type="checkbox" />
+						Tarea 2
+					</label>
 				</li>
 				<li>
-					<input id="tarea 3" type="checkbox" />
-					<label htmlFor="tarea 3">Tarea 3</label>
+					<label htmlFor="tarea 3">
+						<input id="tarea 3" type="checkbox" />
+						Tarea 3
+					</label>
 				</li>
 				<li>
-					<input id="tarea 4" type="checkbox" />
-					<label htmlFor="tarea 4">Tarea 4</label>
+					<label htmlFor="tarea 4">
+						<input id="tarea 4" type="checkbox" />
+						Tarea 4
+					</label>
 				</li>
 			</ul>
 		</section>
