@@ -18,13 +18,12 @@ export function agregarDB(task) {
 		nuevotask.push( task );
 		localStorage.setItem(DB, JSON.stringify( nuevotask ));
 		return JSON.parse(localStorage.getItem(DB));
-	} else {
-		console.debug( `Agregando: ${task}` );
-		const nuevotask = JSON.parse( localStorage.getItem(DB) );
-		nuevotask.push( task );
-		localStorage.setItem(DB, JSON.stringify( nuevotask ));
-		return JSON.parse(localStorage.getItem(DB));
 	}
+	console.debug( `Agregando: ${task}` );
+	const nuevotask = JSON.parse( localStorage.getItem(DB) );
+	nuevotask.push( task );
+	localStorage.setItem(DB, JSON.stringify( nuevotask ));
+	return JSON.parse(localStorage.getItem(DB));
 }
 
 export function getTodos() {
