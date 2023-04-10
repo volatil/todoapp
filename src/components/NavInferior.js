@@ -5,14 +5,13 @@ import dark from "../styles/Darkmode.module.css";
 
 export default function NavInferior(props) {
 	const { losTODO } = props;
+	const lascantidades = !losTODO ? "no"
+								: losTODO.length === 1 ? "1"
+								: losTODO.length
 	
 	return (
 		<nav className={`${navcss.menu} ${dark.menu}`}>
-			{
-				losTODO
-					? (<p>{losTODO.length} items left</p>)
-					: (<p>0 items left</p>)
-			}
+			<p>{lascantidades} items left</p>
 			<ul>
 				<li>all</li>
 				<li>active</li>
