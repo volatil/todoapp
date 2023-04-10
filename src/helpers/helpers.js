@@ -12,7 +12,9 @@ export function agregarDB(task) {
 	const fechacompleta = String(fecha.ano) + String(fecha.mes) + String(fecha.dia) + String(fecha.hora) + String(fecha.minuto) + String(fecha.segundo);
 
 	if ( task.length === 0 ) {
+		/* eslint-disable */
 		alert("Debes ingresar un todo valido");
+		/* eslint-enable */
 	} else if ( localStorage.getItem(DB) === null ) {
 		const nuevotask = [];
 		nuevotask.push({ fechacompleta, task });

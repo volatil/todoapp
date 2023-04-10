@@ -56,7 +56,7 @@ export default function Home() {
 					<Header estado={darkmode} elon={() => { switchDarkmode(); }} />
 					<Crear setlosTODO={setlosTODO} />
 					<Todos losTODO={losTODO} />
-					<NavInferior  losTODO={losTODO} />
+					<NavInferior losTODO={losTODO} />
 				</section>
 			</Darkmode>
 		</>
