@@ -36,14 +36,13 @@ function Header(props) {
 }
 
 function Crear() {
-	const [losTODO, setlosTODO] = useState();
 	const agregaDB = function () {
 		const valor = document.querySelector(".addTODO").value;
 		agregarDB(valor);
 	};
 
 	return (
-		<section className={crear.crear}>
+		<section className={`${crear.crear} ${dark.crear}`}>
 			<ul>
 				<li>
 					<input className="addTODO" type="text" placeholder="Create a new todo ..." />
@@ -58,7 +57,6 @@ function Todos() {
 	const [losTODO, setlosTODO] = useState();
 
 	useEffect(() => {
-		console.debug( getTodos() );
 		setlosTODO( getTodos() );
 	}, []);
 	return (

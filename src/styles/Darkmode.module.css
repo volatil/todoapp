@@ -2,6 +2,9 @@
 main.darkmode[data-darkmode=true] {
 	background-color: #181824;
 }
+main.darkmode[data-darkmode=true] section > section.crear > ul > li {
+	background-color: var(--bloque);
+}
 main.darkmode[data-darkmode=true] section > section.todos > ul > li {
 	background-color: var(--bloque);
 	border-bottom: 1px solid #333;
@@ -19,6 +22,9 @@ main.darkmode[data-darkmode=true] > section > nav.menu {
 main.darkmode[data-darkmode=false] {
 	background-color: whitesmoke;
 }
+main.darkmode[data-darkmode=false] section > section.crear > ul > li {
+	background-color: #ddd;
+}
 main.darkmode[data-darkmode=false] section > section.todos > ul > li {
 	background-color: #ddd;
 	border-bottom: 1px solid #bbb;
@@ -31,3 +37,4 @@ main.darkmode[data-darkmode=false] > section > nav.menu {
 	color: black;
 	font-weight: 600;
 }
+
