@@ -7,7 +7,13 @@ export default function Crear(props) {
 	const { setlosTODO } = props;
 	const agregaDB = function () {
 		const valor = document.querySelector(".addTODO").value;
-		setlosTODO( agregarDB(valor) );
+		if ( valor.length === 0 ) {
+			/* eslint-disable */
+			alert("Debes ingresar un todo valido");
+			/* eslint-enable */
+		} else {
+			setlosTODO( agregarDB(valor) );
+		}
 	};
 
 	return (
