@@ -12,6 +12,15 @@ section.todos > ul > li {
 	align-items: center;
 	height: 50px;
 }
+section.todos > ul > li > img.cerrar {
+	display: none;
+}
+section.todos > ul > li:hover > img.cerrar {
+	display: flex;
+	cursor: pointer;
+	padding: 10px 5px 10px 20px;
+	opacity: .7;
+}
 section.todos > ul > li > label {
 	width: 100%;
 	height: 100%;

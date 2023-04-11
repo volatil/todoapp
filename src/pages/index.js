@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import $ from "jquery";
 
 import Head from "next/head";
 import { Inter } from "next/font/google";
@@ -55,7 +54,7 @@ export default function Home() {
 				<section>
 					<Header estado={darkmode} elon={() => { switchDarkmode(); }} />
 					<Crear setlosTODO={setlosTODO} />
-					<Todos losTODO={losTODO} />
+					<Todos losTODO={losTODO} setlosTODO={setlosTODO} />
 					<NavInferior losTODO={losTODO} />
 				</section>
 			</Darkmode>

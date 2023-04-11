@@ -27,3 +27,14 @@ export function getTodos() {
 	const lostodo = JSON.parse( localStorage.getItem(DB) );
 	return lostodo;
 }
+
+export function eliminar(todoAEliminar) {
+	const tasks = JSON.parse(localStorage.getItem(DB));
+	for ( let count = 0; count <= tasks.length - 1; count++ ) {
+		if ( tasks[count].fechacompleta === todoAEliminar ) {
+			tasks.splice(count, 1);
+		}
+	}
+	localStorage.setItem(DB, JSON.stringify(tasks));
+	return tasks;
+}
