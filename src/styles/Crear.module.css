@@ -26,11 +26,10 @@ section.crear > ul > li > input {
 }
 section.crear > ul > li > input::placeholder {
 	font-family: var(--font);
-	color: var(--secundario);
 }
 section.crear > ul > li > button {
 	width: 60px;
-	background-color: #4e7ad7;
+	/* background-color: #4e7ad7; */
 	color: white;
 	border: none;
 	cursor: pointer;

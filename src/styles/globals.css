@@ -2,9 +2,19 @@
 
 :root {
 	--font: 'Raleway', sans-serif !important;
-	/* DARKMODE */
-	--secundario: #5e5f7b;
-	--bloque: #25273c;
+
+	/* DARK MODE */
+	--Dbody: #181824;
+	--Dsecundario: #5e5f7b;
+	--Dbloque: #25273c;
+	--DbloqueBordeBottom: #333;
+	--Dboton: #4e7ad7;
+	/* LIGHT MODE */
+	--Lbody: #ddd;
+	--Lsecundario: #bbb;
+	--Lbloque: whitesmoke;
+	--LbloqueBordeBottom: #bbb;
+	--Lboton: #1a59df;
 }
 
 body {

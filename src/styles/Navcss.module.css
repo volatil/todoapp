@@ -12,3 +12,6 @@ nav.menu > ul {
 nav.menu > ul > li {
 	list-style: none;
 }
+nav.menu > ul > li.activo {
+	color: #4e74d3;
+}

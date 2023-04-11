@@ -1,40 +1,58 @@
 /* DARK MODE */
 main.darkmode[data-darkmode=true] {
-	background-color: #181824;
+	background-color: var(--Dbody);
 }
 main.darkmode[data-darkmode=true] section > section.crear > ul > li {
-	background-color: var(--bloque);
+	background-color: var(--Dbloque);
+}
+main.darkmode[data-darkmode=true] section > section.crear > ul > li > input::placeholder {
+	color: var(--Dsecundario);
+}
+main.darkmode[data-darkmode=true] section > section.crear > ul > li > button {
+	background-color: var(--Dboton);
 }
 main.darkmode[data-darkmode=true] section > section.todos > ul > li {
-	background-color: var(--bloque);
-	border-bottom: 1px solid #333;
+	background-color: var(--Dbloque);
+	border-bottom: 1px solid var(--DbloqueBordeBottom);
 }
 main.darkmode[data-darkmode=true] > section > section.todos > ul > li label {
 	color: white;
 }
-main.darkmode[data-darkmode=true] > section > nav.menu {
-	background: var(--bloque);
+main.darkmode[data-darkmode=true] > section > section.todos > ul > li.nohay {
 	color: white;
+}
+main.darkmode[data-darkmode=true] > section > nav.menu {
+	background: var(--Dbloque);
+	color: var(--Dsecundario);
 	font-weight: 600;
 }
 
 /* LIGHT MODE */
 main.darkmode[data-darkmode=false] {
-	background-color: whitesmoke;
+	background-color: var(--Lbody);
 }
 main.darkmode[data-darkmode=false] section > section.crear > ul > li {
-	background-color: #ddd;
+	background-color: var(--Lbloque);
+}
+main.darkmode[data-darkmode=false] section > section.crear > ul > li > input::placeholder {
+	color: var(--Lsecundario);
+}
+main.darkmode[data-darkmode=false] section > section.crear > ul > li > button {
+	background-color: var(--Lboton);
 }
 main.darkmode[data-darkmode=false] section > section.todos > ul > li {
-	background-color: #ddd;
-	border-bottom: 1px solid #bbb;
+	background-color: var(--Lbloque);
+	border-bottom: 1px solid var(--LbloqueBordeBottom);
 }
 main.darkmode[data-darkmode=false] > section > section.todos > ul > li label {
 	color: black;
 }
-main.darkmode[data-darkmode=false] > section > nav.menu {
-	background: #ddd;
+main.darkmode[data-darkmode=false] > section > section.todos > ul > li.nohay {
 	color: black;
+}
+main.darkmode[data-darkmode=false] > section > nav.menu {
+	background: var(--Lbloque);;
+	color: var(--Lsecundario);
 	font-weight: 600;
 }
 

@@ -14,7 +14,7 @@ export default function NavInferior(props) {
 					: (<p>0 items left</p>)
 			}
 			<ul>
-				<li>all</li>
+				<li className={navcss.activo}>all</li>
 				<li>active</li>
 				<li>completed</li>
 			</ul>
