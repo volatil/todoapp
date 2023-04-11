@@ -13,6 +13,8 @@ export default function Crear(props) {
 			/* eslint-enable */
 		} else {
 			setlosTODO( agregarDB(valor) );
+			document.querySelector(".addTODO").value = "";
+			document.querySelector(".addTODO").focus();
 		}
 	};
 
