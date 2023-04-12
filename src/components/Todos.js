@@ -22,11 +22,12 @@ export default function Todos(props) {
 				{
 					losTODO
 						? losTODO?.map((todo) => {
-							const { fechacompleta, task, activo } = todo;
+							const { fechacompleta, task, isfinished } = todo;
+
 							return (
-								<li key={fechacompleta} data-activo={activo} onClick={() => tareaTerminada(activo, fechacompleta)}>
+								<li key={fechacompleta} data-isfinished={isfinished} onClick={() => tareaTerminada(isfinished, fechacompleta)}>
 									<label htmlFor={fechacompleta}>
-										<input id={fechacompleta} type="checkbox" />
+										<input id={fechacompleta} type="checkbox" defaultChecked={isfinished} />
 										{task}
 									</label>
 									<Image onClick={() => setlosTODO( eliminar(fechacompleta) )} className={todos.cerrar} src="/assets/svg/cerrar.svg" width={15} height={15} alt="Cerrar" />

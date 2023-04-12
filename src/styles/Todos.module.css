@@ -12,7 +12,7 @@ section.todos > ul > li {
 	align-items: center;
 	height: 50px;
 }
-section.todos > ul > li[data-activo=false] {
+section.todos > ul > li[data-isfinished=true] {
 	text-decoration: line-through;
 	text-decoration-color: #ccc;
 	/* text-decoration-style: wavy; */
