@@ -14,6 +14,20 @@ export default function Todos(props) {
 	const { losTODO, setlosTODO } = props;
 	function tareaTerminada(estado, fechacompleta) {
 		console.debug( `Estado: ${estado}, ${fechacompleta}` );
+		
+		function cambioEstado(estado) {
+			if ( estado ) {
+			  return false
+			}
+			return true;
+		 }
+		 
+		 for ( let count = 0; count <= todo.length-1; count ++ ) {
+			if ( todo[count].fechacompleta === fechacompleta ) {
+			  todo[count].isfinished=cambioEstado(todo[count].isfinished)
+			}
+		 }
+		
 	}
 
 	return (
