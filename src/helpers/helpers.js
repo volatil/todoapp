@@ -13,12 +13,12 @@ export function agregarDB(task) {
 
 	if ( localStorage.getItem(DB) === null ) {
 		const nuevotask = [];
-		nuevotask.push({ fechacompleta, task });
+		nuevotask.push({ fechacompleta, task, activo: true });
 		localStorage.setItem(DB, JSON.stringify( nuevotask ));
 		return JSON.parse(localStorage.getItem(DB));
 	}
 	const nuevotask = JSON.parse( localStorage.getItem(DB) );
-	nuevotask.push({ fechacompleta, task });
+	nuevotask.push({ fechacompleta, task, activo: true });
 	localStorage.setItem(DB, JSON.stringify( nuevotask ));
 	return JSON.parse(localStorage.getItem(DB));
 }

@@ -1,6 +1,6 @@
 import Image from "next/image";
+import $ from "jquery";
 
-import { useEffect, useState } from "react";
 import { eliminar } from "../helpers/helpers";
 
 import todos from "../styles/Todos.module.css";
@@ -12,6 +12,9 @@ function TodoVacio() {
 
 export default function Todos(props) {
 	const { losTODO, setlosTODO } = props;
+	function tareaTerminada(estado, fechacompleta) {
+		console.debug( `Estado: ${estado}, ${fechacompleta}` );
+	}
 
 	return (
 		<section id="todos" className={`${todos.todos} ${dark.todos}`}>
@@ -19,9 +22,9 @@ export default function Todos(props) {
 				{
 					losTODO
 						? losTODO?.map((todo) => {
-							const { fechacompleta, task } = todo;
+							const { fechacompleta, task, activo } = todo;
 							return (
-								<li key={fechacompleta}>
+								<li key={fechacompleta} data-activo={activo} onClick={() => tareaTerminada(activo, fechacompleta)}>
 									<label htmlFor={fechacompleta}>
 										<input id={fechacompleta} type="checkbox" />
 										{task}
