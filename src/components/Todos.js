@@ -1,5 +1,7 @@
 import Image from "next/image";
+import $ from "jquery";
 
+import { useEffect } from "react";
 import TodoVacio from "./TodoVacio";
 
 import { DB } from "../helpers/CONST";
@@ -11,15 +13,29 @@ import dark from "../styles/Darkmode.module.css";
 export default function Todos(props) {
 	const { losTODO, setlosTODO } = props;
 
-	function cambioEstado(elestado) {
-		if ( elestado ) {
-			return false;
-		}
-		return true;
-	}
+	// const tareaFinish = (event) => {
+	// 	event.preventDefault();
+	// 	const lafecha = event.target.getAttribute("data-fechacompleta");
+	// 	console.debug( `FECHA: ${lafecha}` );
+	// };
 
-	function tareaTerminada(fechacompleta) {
+	useEffect(() => {
+		// test2;
+		// test2();
+	}, []);
+
+	const tareaFinish = (event) => {
+		event.preventDefault();
+		const fechacompleta = event.target.getAttribute("data-fechacompleta");
+		console.debug( `FECHA: ${fechacompleta}` );
 		const lostodo = JSON.parse( localStorage.getItem(DB) );
+
+		function cambioEstado(elestado) {
+			if ( elestado === "true" ) {
+				return "false";
+			}
+			return "true";
+		}
 
 		for ( let count = 0; count <= lostodo.length - 1; count++ ) {
 			const data = {
@@ -29,29 +45,39 @@ export default function Todos(props) {
 			};
 
 			if ( lostodo[count].fechacompleta === fechacompleta ) {
-				console.debug( `
-					-> ENTRADA
-					FECHA: ${data.fecha}
-					TASK: ${data.task}
-					ISFINISHED: ${data.isfinished}
-					function resultado: ${cambioEstado(lostodo[count].isfinished)}
-				` );
 				lostodo[count].isfinished = cambioEstado(data.isfinished);
-				lostodo[count].isfinished = cambioEstado(data.isfinished);
-				// lostodo[count].isfinished = "hola";
-				console.debug( `
-					-> SALIDA
-					FECHA: ${data.fecha}
-					TASK: ${data.task}
-					ISFINISHED: ${data.isfinished}
-					function resultado: ${cambioEstado(lostodo[count].isfinished)}
-				` );
 			}
 		}
 		console.debug( lostodo );
 		setlosTODO( lostodo );
 		localStorage.setItem(DB, JSON.stringify(lostodo));
-	}
+	};
+
+	// function tareaTerminada(fechacompleta) {
+	// 	const lostodo = JSON.parse( localStorage.getItem(DB) );
+
+	// 	function cambioEstado(elestado) {
+	// 		if ( elestado === "true" ) {
+	// 			return "false";
+	// 		}
+	// 		return "true";
+	// 	}
+
+	// 	for ( let count = 0; count <= lostodo.length - 1; count++ ) {
+	// 		const data = {
+	// 			fecha: lostodo[count].fechacompleta,
+	// 			task: lostodo[count].task,
+	// 			isfinished: lostodo[count].isfinished,
+	// 		};
+
+	// 		if ( lostodo[count].fechacompleta === fechacompleta ) {
+	// 			lostodo[count].isfinished = cambioEstado(data.isfinished);
+	// 		}
+	// 	}
+	// 	console.debug( lostodo );
+	// 	setlosTODO( lostodo );
+	// 	localStorage.setItem(DB, JSON.stringify(lostodo));
+	// }
 
 	return (
 		<section id="todos" className={`${todos.todos} ${dark.todos}`}>
@@ -62,8 +88,8 @@ export default function Todos(props) {
 							const { fechacompleta, task, isfinished } = todo;
 
 							return (
-								<li role="presentation" key={fechacompleta} data-isfinished={isfinished} onClick={() => tareaTerminada(fechacompleta)}>
-									<label htmlFor={fechacompleta}>
+								<li role="presentation" key={fechacompleta} data-isfinished={isfinished} onClick={tareaFinish}>
+									<label htmlFor={fechacompleta} data-fechacompleta={fechacompleta}>
 										<input id={fechacompleta} type="checkbox" defaultChecked={isfinished} />
 										{task}
 									</label>
