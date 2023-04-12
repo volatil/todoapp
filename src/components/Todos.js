@@ -1,7 +1,6 @@
+import { useState } from "react";
 import Image from "next/image";
-import $ from "jquery";
 
-import { useEffect } from "react";
 import TodoVacio from "./TodoVacio";
 
 import { DB } from "../helpers/CONST";
@@ -13,28 +12,18 @@ import dark from "../styles/Darkmode.module.css";
 export default function Todos(props) {
 	const { losTODO, setlosTODO } = props;
 
-	// const tareaFinish = (event) => {
-	// 	event.preventDefault();
-	// 	const lafecha = event.target.getAttribute("data-fechacompleta");
-	// 	console.debug( `FECHA: ${lafecha}` );
-	// };
-
-	useEffect(() => {
-		// test2;
-		// test2();
-	}, []);
-
 	const tareaFinish = (event) => {
 		event.preventDefault();
+		console.debug( "CLICK!" );
 		const fechacompleta = event.target.getAttribute("data-fechacompleta");
 		console.debug( `FECHA: ${fechacompleta}` );
 		const lostodo = JSON.parse( localStorage.getItem(DB) );
 
 		function cambioEstado(elestado) {
-			if ( elestado === "true" ) {
-				return "false";
+			if ( elestado === true ) {
+				return false;
 			}
-			return "true";
+			return true;
 		}
 
 		for ( let count = 0; count <= lostodo.length - 1; count++ ) {
@@ -53,32 +42,6 @@ export default function Todos(props) {
 		localStorage.setItem(DB, JSON.stringify(lostodo));
 	};
 
-	// function tareaTerminada(fechacompleta) {
-	// 	const lostodo = JSON.parse( localStorage.getItem(DB) );
-
-	// 	function cambioEstado(elestado) {
-	// 		if ( elestado === "true" ) {
-	// 			return "false";
-	// 		}
-	// 		return "true";
-	// 	}
-
-	// 	for ( let count = 0; count <= lostodo.length - 1; count++ ) {
-	// 		const data = {
-	// 			fecha: lostodo[count].fechacompleta,
-	// 			task: lostodo[count].task,
-	// 			isfinished: lostodo[count].isfinished,
-	// 		};
-
-	// 		if ( lostodo[count].fechacompleta === fechacompleta ) {
-	// 			lostodo[count].isfinished = cambioEstado(data.isfinished);
-	// 		}
-	// 	}
-	// 	console.debug( lostodo );
-	// 	setlosTODO( lostodo );
-	// 	localStorage.setItem(DB, JSON.stringify(lostodo));
-	// }
-
 	return (
 		<section id="todos" className={`${todos.todos} ${dark.todos}`}>
 			<ul>
@@ -90,7 +53,7 @@ export default function Todos(props) {
 							return (
 								<li role="presentation" key={fechacompleta} data-isfinished={isfinished} onClick={tareaFinish}>
 									<label htmlFor={fechacompleta} data-fechacompleta={fechacompleta}>
-										<input id={fechacompleta} type="checkbox" defaultChecked={isfinished} />
+										<input id={fechacompleta} type="checkbox" defaultChecked={isfinished || false} />
 										{task}
 									</label>
 									<Image onClick={() => setlosTODO( eliminar(fechacompleta) )} className={todos.cerrar} src="/assets/svg/cerrar.svg" width={15} height={15} alt="Cerrar" />
